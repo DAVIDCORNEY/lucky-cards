@@ -12,7 +12,12 @@ class Deck extends Component {
     this.setState({ deck: deck.data });
   }
 
-  getCard = () => {};
+  getCard = async () => {
+    let deck_id = this.state.deck.deck_id;
+    let cardUrl = `${API_BASE_URL}/${deck_id}/draw/`;
+    let cardResults = await axios.get(cardUrl);
+    console.log(cardResults);
+  };
 
   render() {
     return (
