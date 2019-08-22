@@ -16,6 +16,7 @@ class Deck extends Component {
     return (
       <div>
         <h1>Lucky Cards</h1>
+        <button onClick={this.getCard}>Deal A Card!</button>
       </div>
     );
   }
