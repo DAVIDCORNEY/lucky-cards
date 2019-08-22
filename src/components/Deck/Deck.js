@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class Deck extends Component {
-  state = {};
+  state = {
+    deck: null
+  };
   render() {
     return (
       <div>
