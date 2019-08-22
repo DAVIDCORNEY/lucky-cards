@@ -5,6 +5,9 @@ class Deck extends Component {
   state = {
     deck: null
   };
+
+  componentDidMount() {}
+
   render() {
     return (
       <div>
