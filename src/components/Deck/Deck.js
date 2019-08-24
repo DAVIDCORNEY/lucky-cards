@@ -15,19 +15,27 @@ class Deck extends Component {
 
   getCard = async () => {
     let deck_id = this.state.deck.deck_id;
-    let cardUrl = `${API_BASE_URL}/${deck_id}/draw/`;
-    let cardResults = await axios.get(cardUrl);
-    let card = cardResults.data.cards[0];
-    this.setState(st => ({
-      drawn: [
-        ...st.drawn,
-        {
-          id: card.code,
-          image: card.image,
-          name: `${card.value} of ${card.suit}`
-        }
-      ]
-    }));
+    try {
+      let cardUrl = `${API_BASE_URL}/${deck_id}/draw/`;
+      let cardResults = await axios.get(cardUrl);
+      if (!cardResults.data.success) {
+        throw new Error("No card remaining");
+      }
+      console.log(cardResults);
+      let card = cardResults.data.cards[0];
+      this.setState(st => ({
+        drawn: [
+          ...st.drawn,
+          {
+            id: card.code,
+            image: card.image,
+            name: `${card.value} of ${card.suit}`
+          }
+        ]
+      }));
+    } catch (err) {
+      alert(err);
+    }
   };
 
   render() {
