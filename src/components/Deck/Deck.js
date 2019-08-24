@@ -21,7 +21,7 @@ class Deck extends Component {
       if (!cardResults.data.success) {
         throw new Error("No card remaining");
       }
-      console.log(cardResults);
+      console.log(cardResults.data);
       let card = cardResults.data.cards[0];
       this.setState(st => ({
         drawn: [
