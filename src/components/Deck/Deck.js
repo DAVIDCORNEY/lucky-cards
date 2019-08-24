@@ -45,7 +45,7 @@ class Deck extends Component {
       <Card key={card.id} name={card.name} image={card.image} />
     ));
     return (
-      <div>
+      <div className="cardbody">
         <h1>Lucky Cards</h1>
         <button onClick={this.getCard}>Deal A Card!</button>
         <div className="cardarea">{cards}</div>
