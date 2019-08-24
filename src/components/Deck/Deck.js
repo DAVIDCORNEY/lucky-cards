@@ -40,10 +40,14 @@ class Deck extends Component {
   };
 
   render() {
+    const cards = this.state.drawn.map(card => (
+      <Card name={card.name} image={card.image} />
+    ));
     return (
       <div>
         <h1>Lucky Cards</h1>
         <button onClick={this.getCard}>Deal A Card!</button>
+        {cards}
       </div>
     );
   }
